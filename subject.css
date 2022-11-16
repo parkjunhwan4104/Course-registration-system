@@ -1,0 +1,45 @@
+@charset "UTF-8";
+.login {
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+.logout_btn{
+	margin-right : 20px;
+	margin-top : 5px;
+	position : relative;
+}
+.mypage_btn{
+	margin-right : 20px;
+	margin-top: 15px;
+	position : relative;
+}
+.head {
+    width:500px;
+    margin: auto;
+    border: 3px dotted blue;
+}
+#search_head{
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr; 
+    grid-template-rows: 1fr 1fr;
+    width:770px;
+}
+.panel {
+    width: 1500px;
+    border: 1px solid red;
+    margin: auto;
+    padding: 0;
+}
+.table{
+	display: grid; 
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    border : 1px dotted black;
+}
+.row{
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr 3fr 3fr 3fr 3fr 1fr;
+	border:3px solid rgb(97, 46, 46);
+}
+.row input{border:0 solid black}
+.cell {display: table-cell; padding: 3px; border-bottom: 2px bold #DDD;}
