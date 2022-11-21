@@ -28,11 +28,12 @@
   box-sizing: border-box;
 }
 
-input{
-    margin-bottom: 25px;
-    border: gray solid 1px; background-color: #ededed;
-    padding: 0 20px;
-    box-sizing: border-box;
+input {
+  margin-bottom: 25px;
+  border: gray solid 1px;
+  background-color: #ededed;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .search_text {
@@ -47,7 +48,7 @@ input{
   margin-bottom: 5px;
 }
 
-table {
+/* table {
   display: grid;
   grid-template-rows: 1fr;
 
@@ -71,4 +72,99 @@ td {
 
 th{
   background-color: #ededed;
+} */
+table {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+table, th, td {
+  border: 1px solid rgb(185, 190, 189);
+  border-collapse: collapse;
+}
+
+th {
+  width: auto;
+  background-color: #ededed;
+  height: 45px;
+}
+
+td {
+  height: 40px;
+}
+
+#pop_wrap form {
+  display: table;
+}
+
+#pop_wrap p {
+  height: 40px;
+  display: table-row;
+}
+
+#pop_wrap label {
+  display: table-cell;
+  width: 100px;
+  font-weight: bold;
+}
+
+#pop_wrap input {
+  display: table-cell;
+  width: 200px;
+  background-color: white;
+}
+
+#pop_wrap button {
+  margin-right: 50px;
+}
+
+#pop_wrap {
+  display: none;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+#pop_wrap .pop_content {
+  width: 500px;
+  height: auto;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ededed;
+  box-shadow: 3px 3px 5px grey;
+}
+
+#pop_wrap .pop_form {
+  margin: auto;
+  margin-top: 40px;
+}
+
+#pop_wrap .pop_layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#pop_wrap button, input, select {
+  margin-bottom: 20px;
+}
+
+#subject_time_penel{
+  background-color: rgb(138, 166, 205);
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+#subject_time_penel input{
+  margin-bottom: 10px;
+}
+
+#subject_time_penel .subject_time_penel_title{
+  font-weight: bold;
+
 }
