@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>마이페이지</title>
+  <link rel="stylesheet" href="./manager_page.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <div id="student_panel" class="panel">
+    <!--학번 이름 및 자기 정보-->
+    <div id="student_head_wrap">
+      <div id="student_head" class="head">
+        <p>관리자 정보
+          <span th:text="${nickName}+ '님'"></span>
+          <a href="/members/logout">
+            <button class="btn btn-secondary btn-sm" class="logout_btn" type="submit" value="submit">로그 아웃</button>
+            <!--TODO 로그아웃 버튼 -> 로그인 페이지로 이동-->
+          </a>
+          <a href="/members/myPage">
+            <button class="btn btn-secondary btn-sm" class="mypage_btn">마이 페이지</button>
+            <!--TODO 마이 페이지로 이동-->
+          </a>
+      </div>
+    </div>
+
+    <!-- 수정가능 모달 폼 -->
+    <div id="pop_wrap">
+      <div class="pop_content">
+        <form method="POST" class="pop_form">
+          <p>
+            <label for="department">학과</label>
+            <input type="text" id="department" name="department" value="" required>
+          </p>
+          <p>
+            <label for="grade">학년</label>
+            <input type="text" id="grade" name="grade" value="" required>
+          </p>
+          <p>
+            <label for="subjectnumber">과목번호</label>
+            <input type="text" id="subjectnumber" name="subjectnumber" value="" required>
+          </p>
+          <p>
+            <label for="classnum">분반</label>
+            <input type="text" id="classnum" name="classnum" value="" required>
+          </p>
+          <p>
+            <label for="subjectname">과목명</label>
+            <input type="text" id="subjectname" name="subjectname" value="" required>
+          </p>
+          <p>
+            <label for="professor">교수명</label>
+            <input type="text" id="professor" name="professor" value="" required>
+          </p>
+          <p>
+            <label for="score">학점</label>
+            <input type="text" id="score" name="score" value="" required>
+          </p>
+          <p>
+            <label for=""></label>
+            <button type="submit" id="pop_submitButton" formmethod="post" formaction="" class="btn btn-secondary btn-sm">수정완료</button>
+            <button type="button" id="pop_cancelButton" formmethod="post" formaction="" class="btn btn-secondary btn-sm">취소</button>
+          </p>
+        </form>
+      </div>
+      <div class="pop_layer"></div>
+    </div>
+
+
+    <div id="student_main_panel" class="main">
+      <p align="center" class="info">학번:
+        <span th:text="' '+${loginId}"> </span> 
+      </p>
+      <p align="center" class="info">이름:
+        <span th:text="' '+${nickName}"> </span>
+    </div>
+  </div>
+
+ <!-- todo 시간 설정 -> 로그인 후 수강 신청 페이지에 접속하기 전 시간이 맞는 지 확인하고 아니면 시간이
+아니라는 오류문을 출력하고 -->
+  <div id="subject_time_panel">
+    <p class = "subject_time_panel_title">수강신청 가능 시간</p>
+    <form class="" action="index.html" method="post">
+      시작: <input type="datetime-local" name="" value="">
+      <br>
+      종료: <input type="datetime-local" name="" value="">
+      <br>
+      <button type="submit" name="button" class="btn btn-secondary btn-sm">저장</button>
+    </form>
+
+  </div>
+
+  <div id="application_detail_panel" class="">
+    <form id="application_detail_form" class="" action="index.html" method="post">
+      <table>
+        <tr>
+          <th>학과</th>
+          <th>학년</th>
+          <th>과목번호</th>
+          <th>분반</th>
+          <th>과목명</th>
+          <th>교수명</th>
+          <th>학점</th>
+          <th>인원</th>
+          <th>수정</th>
+          <th>삭제</th>
+        </tr>
+
+        <tbody>
+          <tr th:each="lecture : ${lectureList}">
+              <td th:text="${lecture.department}"></td>
+              <td th:text="${lecture.forGrade}"></td>
+              <td th:text="${lecture.subjectNumber}"></td>
+              <td th:text="${lecture.classNum}"></td>
+              <td th:text="${lecture.subject}"></td>
+              <td th:text="${lecture.professorName}"></td>
+              <td th:text="${lecture.credit}"></td>
+              <td th:text="${lecture.currentNum}+'/'+${lecture.maxNum}"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td >
+                <!--todo 수정 버튼 클릭시 수정 창 띄우기 -> 수정 및 확인 클릭시 수정-->
+                  <form th:action="@{~/members/ReviseLecture/}+${lecture.lectureId}" method="POST">
+                      <button class="btn btn-secondary btn-sm lecture_revise_btn">수정</button>
+                  </form>
+              </td>
+              <td >
+                <!--todo 삭제 버튼 클릭시 현재 강의 삭제-->
+                  <form th:action="@{~/members/CancelLecture/}+${lecture.lectureId}" method="POST">
+                      <button class="btn btn-secondary btn-sm lecture_cancel_btn">삭제</button>
+                  </form>
+              </td>
+          </tr>
+          </tbody>
+        
+       
+      </table>
+    </form>
+
+  </div>
+  <script type="text/javascript" src = "./Manager_page.js"></script>
+
+</body>
+
+</html>
