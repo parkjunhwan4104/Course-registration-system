@@ -72,11 +72,9 @@ th,td {
     display: grid;
     padding: 1px;
 }
-    
 th{
     background-color: #ededed;
 }
-    
 .login button{
     display: block;
     width: 220px; height: 40px;
@@ -87,7 +85,6 @@ th{
     color: #fff; font-size: 14px; 
     font-weight: bold;
 }
-    
 .login h1{
     width: 100%;
     line-height: 100px;
@@ -97,4 +94,7 @@ th{
     
 .search_btn{
     margin-left:700px;
+}
+#apply_head{
+    margin-bottom: 10px;
 }
