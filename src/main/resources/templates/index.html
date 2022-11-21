@@ -73,7 +73,6 @@
             <hr>
             <div id="apply_head" class="head"><!--과목번호+분반을 통해 바로 신청가능-->
                 <form th:action="@{~/members/applyBySubjectNum}" method="POST">
-
                     <span class="search_text">
                         과목번호 <input type="text" name="subjectNumber" class="search_input" size="10"/><span></span>
                     분반 <input type="text" name="classNum" class="search_input" size="3"/>
@@ -81,7 +80,6 @@
                     <button  type="submit" class="btn btn-secondary btn-sm">신청</button>
                 </form>
             </div>
-
             <div id="search_main" class="main">
                 <table>
                     <thead>
