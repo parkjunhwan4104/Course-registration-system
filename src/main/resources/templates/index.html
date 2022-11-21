@@ -3,120 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
     <title>Title</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 </head>
-<style>
-#student_head_wrap {
-width: 100%;
-height: 100px;
-background-color: rgb(42, 65, 136);
-}
-
-#student_head {
-float: right;
-width: 300px;
-color: white;
-}
-
-#student_main_panel {
-margin-top: 60px;
-margin-bottom: 30px;
-background-color: rgb(138, 166, 205);
-padding: 10px;
-}
-
-.info {
-display: inline;
-width: 100%;
-height: 50px;
-margin-bottom: 25px;
-border: none;
-background-color: #ededed;
-padding: 0 20px;
-box-sizing: border-box;
-}
-
-input{
-margin-bottom: 25px;
-border: gray solid 1px; background-color: #ededed;
-padding: 0 20px;
-box-sizing: border-box;
-}
-
-.search_text {
-margin-left: 30px;
-margin-right: 50px;
-}
-
-.head_row {
-display: grid;
-grid-template-columns: 5fr 5fr 3fr;
-max-height: 25px;
-margin-bottom: 5px;
-}
-
-table {
-display: grid;
-grid-template-rows: 1fr;
-
-}
-
-tr {
-display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-border: 3px solid rgb(97, 46, 46);
-margin-top: 10px;
-margin-bottom: 10px;
-text-align: center;
-
-}
-
-th,
-td {
-display: grid;
-padding: 1px;
-}
-
-th{
-background-color: #ededed;
-}
-
-.login{
-    margin-top:200px;
-
-}
-
-.login button{
-    display: block;
-    width: 220px; height: 50px;
-    margin: 0 auto;
-    border: none;
-    background-color:  rgb(42, 65, 136);
-    color: #fff; font-size: 14px; font-weight: bold;
-}
-
-.login h1{
-    width: 100%;
-    height: 100px; line-height: 100px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.search_btn{
-    margin-left:700px;
-}
-</style>
-
-
-
 <body>
 <div class="login" sec:authorize="isAnonymous()">  <!-- 로그인이 아직 되지 않은 상태-->
     <h1>수강신청 시스템</h1>
@@ -127,9 +20,6 @@ background-color: #ededed;
 
 <div class="wrap2" sec:authorize="isAuthenticated()">  <!-- 로그인이 이루어진 상태-->
     <div>
-
-
-
         <div id="student_panel" class="panel">
             <!--학번 이름 및 자기 정보-->
             <div id="student_head_wrap">
@@ -204,8 +94,7 @@ background-color: #ededed;
                         <th>교수명</th>
                         <th>학점</th>
                         <th>현재 수강인원</th>
-
-
+                        <th>신청</th>
                     </tr>
                     </thead>
 
@@ -219,6 +108,8 @@ background-color: #ededed;
                         <td th:text="${lecture.professorName}"></td>
                         <td th:text="${lecture.credit}"></td>
                         <td th:text="${lecture.currentNum}+'/'+${lecture.maxNum}"></td>
+                        <td></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
